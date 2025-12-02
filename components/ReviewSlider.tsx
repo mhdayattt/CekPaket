@@ -37,18 +37,6 @@ export default function ReviewSlider() {
         }
     };
 
-    const scroll = (direction: 'left' | 'right') => {
-        if (scrollContainerRef.current) {
-            const { current } = scrollContainerRef;
-            const scrollAmount = 350; // Width of card + gap
-            if (direction === 'left') {
-                current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else {
-                current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
-        }
-    };
-
     if (loading) {
         return <div className="text-center text-slate-400">Memuat ulasan...</div>;
     }
@@ -79,7 +67,7 @@ export default function ReviewSlider() {
                                     </svg>
                                 ))}
                             </div>
-                            <p className="text-slate-300 mb-6 leading-relaxed italic line-clamp-4">"{review.review}"</p>
+                            <p className="text-slate-300 mb-6 leading-relaxed italic line-clamp-4">&quot;{review.review}&quot;</p>
                             <div className="flex items-center gap-3 mt-auto">
                                 <div className="w-10 h-10 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 font-bold border border-indigo-500/30">
                                     {review.name.charAt(0)}
