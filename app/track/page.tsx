@@ -1,7 +1,7 @@
 // Halaman khusus tracking - REDESIGNED
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -9,7 +9,7 @@ import TrackingForm from '@/components/TrackingForm';
 import TrackingResult from '@/components/TrackingResult';
 import type { TrackingData } from '@/lib/types';
 
-export default function TrackPage() {
+function TrackContent() {
     const searchParams = useSearchParams();
     const [trackingData, setTrackingData] = useState<TrackingData | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -106,5 +106,13 @@ export default function TrackPage() {
 
             <Footer />
         </div>
+    );
+}
+
+export default function TrackPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">Loading...</div>}>
+            <TrackContent />
+        </Suspense>
     );
 }
