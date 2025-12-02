@@ -67,7 +67,9 @@ export default function ReviewSlider() {
                                     </svg>
                                 ))}
                             </div>
-                            <p className="text-slate-300 mb-6 leading-relaxed italic line-clamp-4">&quot;{review.review}&quot;</p>
+                            <p className="text-slate-300 mb-6 leading-relaxed italic line-clamp-4">
+                                &ldquo;{review.review}&rdquo;
+                            </p>
                             <div className="flex items-center gap-3 mt-auto">
                                 <div className="w-10 h-10 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 font-bold border border-indigo-500/30">
                                     {review.name.charAt(0)}
